@@ -12,7 +12,7 @@ void sieve_of_erastothenes(const unsigned int N)
     memset(result, true, N * sizeof(bool));
     while (actual_prime < SQRT_N)
     {
-        for (int i = actual_prime * actual_prime; i < N; i += actual_prime)
+        for (int i = actual_prime * actual_prime; i <= N; i += actual_prime)
             result[i] = false;
         while (!result[++actual_prime])
             ;
@@ -27,7 +27,7 @@ int main(int argc, char const *argv[])
 {
     unsigned int N;
     printf("Enter up limit for sieving:\t");
-    scanf("%d", &N);
+    scanf("%u", &N);
     sieve_of_erastothenes(N);
     return 0;
 }
